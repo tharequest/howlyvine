@@ -17,8 +17,6 @@ bun run build     # or: npm run build
 # → output goes to ./dist/
 ```
 
-All data is saved to `localStorage` — it persists across browser sessions.
-
 ## 📦 Deploy to Pinata (IPFS)
 
 1. Run `bun run build` → `dist/` folder is created
