@@ -23,11 +23,11 @@ bun run build     # or: npm run build
 2. Go to [app.pinata.cloud](https://app.pinata.cloud)
 3. Upload the entire `dist/` folder
 4. Copy the IPFS CID (e.g. `Qm...` or `bafybei...`)
-5. Point your ENS name `howlyvine.eth` to the CID:
+5. Point your ENS name `yourens.eth` to the CID:
    - Go to [app.ens.domains](https://app.ens.domains)
-   - Manage `howlyvine.eth` → **Records**
+   - Manage `yourens.eth` → **Records**
    - Set **Content Hash** to `ipfs://YOUR_CID`
-6. Access via `https://howlyvine.eth.limo` or `https://howlyvine.eth.link`
+6. Access via `https://yourens.eth.limo` or `https://yourens.eth.link`
 
 > **Note:** Because this is IPFS/static, data added via the admin panel is stored in your *browser's* localStorage only — not globally. For a production setup, consider integrating Pinata's JSON API to persist data on IPFS directly.
 
