@@ -23,23 +23,32 @@ async function getFiles(dir) {
 async function upload() {
   const files = await getFiles(DIST_DIR);
   const form = new FormData();
+
   for (const file of files) {
     const rel = relative(DIST_DIR, file);
     const content = await readFile(file);
-    form.append('file', content, { filename: `howlyvine/${rel}` });
+    form.append('file', content, {
+      filepath: `howlyvine/${rel}`,
+      knownLength: content.length
+    });
   }
+
   form.append('pinataMetadata', JSON.stringify({ name: 'howlyvine' }));
+  form.append('pinataOptions', JSON.stringify({ wrapWithDirectory: false }));
 
   const res = await fetch('https://api.pinata.cloud/pinning/pinFileToIPFS', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${JWT}`, ...form.getHeaders() },
+    headers: {
+      Authorization: `Bearer ${JWT}`,
+      ...form.getHeaders()
+    },
     body: form
   });
 
   const data = await res.json();
   if (data.IpfsHash) {
-    console.log('CID:', data.IpfsHash);
-    console.log('URL: https://gateway.pinata.cloud/ipfs/' + data.IpfsHash);
+    console.log('✅ CID:', data.IpfsHash);
+    console.log('🌐 URL: https://gateway.pinata.cloud/ipfs/' + data.IpfsHash);
   } else {
     console.error('Error:', JSON.stringify(data));
     process.exit(1);
