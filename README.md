@@ -17,25 +17,6 @@ bun run build     # or: npm run build
 # → output goes to ./dist/
 ```
 
-## 🔐 Admin Login
-
-Default credentials (change before deploying!):
-
-| Field    | Value       |
-|----------|-------------|
-| Username | `howlyvine` |
-| Password | `howly2026` |
-
-To change: edit `src/components/LoginModal.tsx`, lines:
-```ts
-const ADMIN_USERNAME = "howlyvine";
-const ADMIN_PASSWORD = "howly2026";
-```
-
-After logging in, click your username in the navbar to open the **Admin Panel** where you can:
-- ➕ Add / ✏️ Edit / 🗑️ Delete **Projects**
-- ➕ Add / ✏️ Edit / 🗑️ Delete **Posts**
-
 All data is saved to `localStorage` — it persists across browser sessions.
 
 ## 📦 Deploy to Pinata (IPFS)
