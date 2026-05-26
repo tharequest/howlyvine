@@ -5,7 +5,7 @@ export const DEFAULT_PROJECTS: Project[] = [
     id: "1",
     name: "Portal",
     description:
-      "Academic portal for FMIPA Untan. Letter tracking, diploma verification, academic calendar & live student stats - all in one place.",
+      "Academic portal for FMIPA Untan mulia. Letter tracking, diploma verification, academic calendar & live student stats - all in one place.",
     tech: ["React", "TypeScript", "Vite", "CSS", "Vercel"],
     link: "https://portalmipa.vercel.app/",
   },
